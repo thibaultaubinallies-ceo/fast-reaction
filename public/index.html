@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fast Reaction — Le réflexe fait la différence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="scene"><div class="gridGlow"></div><div class="scanlines"></div><div class="coin coin1">€</div><div class="coin coin2">€</div><div class="coin coin3">€</div><div class="coin coin4">€</div><div class="coin coin5">€</div></div>
+<header class="topbar">
+  <div class="brand"><span class="bolt">ϟ</span><div>FAST <span>REACTION</span></div></div>
+  <nav><a class="navActive">Accueil</a><a>Classement</a><a>Règles</a></nav>
+  <div class="accountNav"><button id="account" class="loginBtn">♙ &nbsp;Se connecter</button><button id="accountTop" class="accountBtn">Créer un compte</button><button class="lang">🇫🇷 FR⌄</button></div>
+</header>
+<main>
+<section id="home" class="page active">
+  <div class="heroWrap">
+    <div class="prizePanel">
+      <div class="prizeIcon">♛</div><div class="prizeTitle">GROS LOTS<br><span>À GAGNER</span></div>
+      <div class="rank"><b>🏆</b><span>1er</span><strong>500 €</strong></div><div class="rank"><b>◈</b><span>2e</span><strong>250 €</strong></div><div class="rank"><b>◆</b><span>3e</span><strong>100 €</strong></div>
+    </div>
+    <div class="heroCenter">
+      <div class="targetHalo"><i></i><i></i><i></i></div>
+      <div class="eyebrow">⚡ LE JEU DE RÉFLEXES MULTIJOUEUR</div>
+      <h1><span>FAST</span><em>REACTION</em></h1>
+      <p class="tagline">LE RÉFLEXE FAIT LA DIFFÉRENCE</p>
+      <div class="actions">
+        <button class="gameCard createCard" id="create"><span class="cardIcon">＋</span><strong>CRÉER<br>UN SALON</strong><small>Choisis ta mise, ton nombre de joueurs<br>et lance le défi !</small><b class="arrow">→</b></button>
+        <button class="gameCard joinCard" id="join"><span class="cardIcon">↪</span><strong>REJOINDRE<br>UN SALON</strong><small>Entre le code du salon et rejoins<br>tes amis !</small><b class="arrow">→</b></button>
+      </div>
+    </div>
+    <div class="moneyPanel">
+      <div class="scribble">JOUE<br><b>GAGNE</b><br>ENCAISSE</div>
+      <div class="trophy">🏆</div>
+      <div class="moneyStack"><span>€</span><span>€</span><span>€</span><span>€</span></div>
+      <div class="jackpot">DES CENTAINES D'EUROS<br><b>DE LOTS CHAQUE JOUR !</b></div>
+    </div>
+  </div>
+  <div class="moneyTag">⚡ TON RÉFLEXE<br><b>VAUT DE L'ARGENT</b></div>
+  <div class="featureBar">
+    <div><b>ϟ</b><strong>RAPIDE</strong><span>Des parties intenses<br>de quelques secondes</span></div>
+    <div><b>♢</b><strong>SÉCURISÉ</strong><span>Un environnement fiable<br>et 100% sécurisé</span></div>
+    <div><b>♟</b><strong>MULTIJOUEUR</strong><span>Affronte des joueurs<br>du monde entier</span></div>
+    <div><b>🏆</b><strong>RÉCOMPENSES</strong><span>Grimpe dans le classement<br>et gagne des prix</span></div>
+  </div>
+  <div class="virtualNote">⚠ Pour le moment, toutes les mises et récompenses sont <b>virtuelles</b>.</div>
+</section>
+
+<section id="auth" class="modal"><div class="box"><button class="close">×</button><small>TON PROFIL</small><h2>Crée ton compte</h2><p>Retrouve ton profil et ton solde à chaque connexion.</p><input placeholder="Adresse e-mail"><input id="profileName" placeholder="Nom d'utilisateur"><input type="password" placeholder="Mot de passe"><button class="primary full">Créer mon compte</button><div class="or">ou</div><button class="facebook full">f　Continuer avec Facebook</button><em>Les connexions sociales seront activées avant la mise en production.</em></div></section>
+<section id="setup" class="modal"><div class="box"><button class="close">×</button><small>NOUVEAU SALON</small><h2>Prépare ta partie</h2><label>Mise virtuelle par joueur</label><div id="stakes" class="chips"><button>1 €</button><button class="sel">5 €</button><button>10 €</button><button>25 €</button></div><label>Nombre maximum de joueurs</label><div class="step"><button id="minus">−</button><b id="max">8</b><button id="plus">＋</button></div><button class="primary full" id="launch">Créer le salon →</button></div></section>
+<section id="joinbox" class="modal"><div class="box"><button class="close">×</button><small>REJOINDRE</small><h2>Entre le code du salon</h2><p>Ton ami te donne le code affiché dans son salon.</p><input id="jcode" class="code" maxlength="5" placeholder="A B C D E"><input id="jname" placeholder="Nom d'utilisateur"><button class="primary full" id="gojoin">Rejoindre la partie →</button><div id="err"></div></div></section>
+<section id="lobby" class="page game"><div class="bar"><div><small>SALON</small><strong id="code">-----</strong><button id="copy">Copier</button></div><div><small>SOLDE</small><strong id="balance">100,00 €</strong></div></div><div class="grid"><div><small>EN ATTENTE</small><h2>Tout le monde doit être prêt.</h2><p>La partie démarre quand tous les joueurs ont validé.</p><div id="players"></div><button id="ready" class="ready">✓ Je suis prêt</button></div><aside>🎯<h3>RÈGLE DU JEU</h3><p>Attends l'apparition de la cible, puis clique dessus avant les autres.</p><hr><span>Mise <b id="stake">5 €</b></span><span>Joueurs <b id="count">1/8</b></span></aside></div></section>
+<section id="arenaPage" class="page game"><div class="arenaTop">PRÉPARE-TOI... <b>POT <span id="pot">0 €</span></b></div><div id="arena"><div id="target"></div><div id="wait">ATTENDS...</div></div></section>
+<section id="result" class="page result"><div id="card"></div></section>
+</main>
+<script src="/socket.io/socket.io.js"></script><script src="/app.js"></script>
+</body></html>
